@@ -1,17 +1,13 @@
 require 'sinatra'
   
   get "/" do
-   <<-HTML 
-    <h1>Hola desconocido!</h1>
-    HTML
+   if params[:nombre] == "" || params[:nombre] == nil
+     "Hola desconocido!"
+   else
+   	  <<-HTML 
+   	  
+   	  <h1> Hola #{params[:nombre]} </h1> 
+
+   	  HTML
+   end
   end
-
-get "/:name" do
-<<-HTML
-<h1>
-
-Hola #{params[:name]}
-
-</h1>
-HTML
-end
